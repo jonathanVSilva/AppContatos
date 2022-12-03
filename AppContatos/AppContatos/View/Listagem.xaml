@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContatos.View.Listagem"
+             Title="Lista de Contatos" >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Novo" Clicked="ToolbarItem_Clicked_Adicionar" />
+        
+    </ContentPage.ToolbarItems>
+   
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <SearchBar x:Name="txt_busca" Placeholder="Buscar contato" TextChanged="txt_busca_TextChanged" />
+
+            <RefreshView x:Name="ref_carregando" 
+                         IsRefreshing="False" 
+                         Refreshing="lst_contatos_Refreshing">
+
+                <ListView x:Name="lst_contatos" ItemSelected="lst_contatos_ItemSelected" >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                                </ViewCell.ContextActions>
+
+                                <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, Auto">
+                                    <Label Grid.Row="0" Grid.Column="0" Margin="10, 10, 0, 0" FontSize="20" Text="{Binding Nome}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Margin="0, 10, 0, 0" FontSize="20" Text="{Binding Sobrenome}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

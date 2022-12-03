@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContatos.View.NovoContato"
+             Title="Novo Contato">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Label Text="Nome:"/>
+            <Entry x:Name="txt_nome" Text="{Binding Nome }"/>
+
+            <Label Text="Sobrenome:"/>
+            <Entry x:Name="txt_sobrenome" Text="{Binding Sobrenome }"/>
+
+            <Label Text="Número:"/>
+            <Entry x:Name="txt_numero" Text="{Binding Numero }"/>
+
+            <Label Text="E-mail:"/>
+            <Entry x:Name="txt_email" Text="{Binding Email }"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
